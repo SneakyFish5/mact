@@ -1376,3 +1376,4 @@ if (function(a) {
     bmak.mn_init();
   } catch (a) {}
 }
+//fuck jsdelivr
