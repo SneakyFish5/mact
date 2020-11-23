@@ -896,24 +896,17 @@ var _cf = _cf || [],
 
       const payload = {
         mact: bmak.mact,
-        screen: { width, height, availHeight, availWidth },
-        me_cnt: bmak.me_cnt
+        screen: { width, height, availHeight, availWidth }
       };
-	  if (bmak.mact !== '' && bmak.me_cnt > 27) {
-    //   await fetch("https://akamai-data-api.herokuapp.com/api/mact", {
-    //     method: "POST",
-    //     headers: {
-    //         'Content-Type':'application/json',
-    //         'Accept':'application/json'
-    //     },
-    //     body: JSON.stringify(payload)
-    //   })
-    console.log(JSON.stringify(payload));
-    bmak.me_cnt = 0;
-    bmak.mme_cnt = 0
-    bmak.mact = ""
-    bmak.start_ts = bmak.get_cf_date()
-    }
+     if (bmak.mact !== '' && bmak.me_cnt > 27) {
+      await fetch("https://akamai-data-api.herokuapp.com/api/mact", {
+        method: "POST",
+        headers: {
+            'Content-Type':'application/json',
+            'Accept':'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
     },
     apicall_bm: function(a, t, e) {
       var n;
